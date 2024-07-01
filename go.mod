@@ -4,7 +4,7 @@ go 1.22.3
 
 require (
 	github.com/MakeNowJust/heredoc/v2 v2.0.1
-	github.com/chainguard-dev/clog v1.3.1
+	github.com/chainguard-dev/clog v1.4.0
 	github.com/charmbracelet/log v0.4.0
 	github.com/dominodatalab/os-release v0.0.0-20190522011736-bcdb4a3e3c2f
 	github.com/go-git/go-git/v5 v5.12.0
@@ -28,6 +28,7 @@ require (
 	golang.org/x/exp v0.0.0-20231108232855-2478ac86f678
 	golang.org/x/sync v0.7.0
 	golang.org/x/sys v0.21.0
+	golang.org/x/time v0.5.0
 	gopkg.in/ini.v1 v1.67.0
 	gopkg.in/yaml.v3 v3.0.1
 	k8s.io/apimachinery v0.30.2
