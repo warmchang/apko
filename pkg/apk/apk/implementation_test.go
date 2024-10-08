@@ -111,11 +111,7 @@ func TestInitDB_ChainguardDiscovery(t *testing.T) {
 	apk, err := New(WithFS(src), WithIgnoreMknodErrors(ignoreMknodErrors))
 	require.NoError(t, err)
 
-	// This is a staging group that was set up to host public images published
-	// by https://github.com/chainguard-dev/terraform-provider-apko presubmit.
-	// TODO(mattmoor): Once we push this out to production, we should switch to
-	// using apk.cgr.dev/chainguard or apk.cgr.dev/extra-packages.
-	err = apk.InitDB(context.Background(), "https://apk.chainreg.biz/tf-apko.pub")
+	err = apk.InitDB(context.Background(), "https://apk.cgr.dev/chainguard")
 	require.NoError(t, err)
 	// check all of the contents
 	for _, d := range initDirectories {
@@ -425,7 +421,7 @@ func TestFetchPackage(t *testing.T) {
 
 		opts := []Option{WithFS(src), WithIgnoreMknodErrors(ignoreMknodErrors)}
 		if cache != "" {
-			opts = append(opts, WithCache(cache, false))
+			opts = append(opts, WithCache(cache, false, NewCache(false)))
 		}
 		a, err := New(opts...)
 		require.NoError(t, err, "unable to create APK")
